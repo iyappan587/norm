@@ -4,48 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WhatsApp Invite</title>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: Arial, sans-serif;
+    }
+
+    body {
       background: #e5ddd5;
     }
 
+    /* Header */
     .header {
       background: #075E54;
       color: white;
       padding: 15px;
-      font-size: 18px;
       display: flex;
       align-items: center;
       gap: 10px;
+      font-size: 18px;
     }
 
     .header i {
       font-size: 22px;
     }
 
+    /* Container */
     .container {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 90vh;
+      height: calc(100vh - 60px);
+      padding: 20px;
     }
 
+    /* Card */
     .card {
       background: white;
-      width: 350px;
-      border-radius: 12px;
+      width: 100%;
+      max-width: 380px;
+      border-radius: 15px;
       text-align: center;
-      padding: 30px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      padding: 30px 20px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+      animation: fadeIn 0.6s ease-in-out;
     }
 
+    /* WhatsApp Icon */
     .group-icon {
-      width: 100px;
-      height: 100px;
+      width: 90px;
+      height: 90px;
       background: #25D366;
       border-radius: 50%;
       display: flex;
@@ -53,28 +66,38 @@
       align-items: center;
       margin: auto;
       color: white;
-      font-size: 40px;
+      font-size: 38px;
     }
 
+    /* Text */
     h2 {
       margin: 15px 0 5px;
+      font-size: 22px;
+    }
+
+    .members {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 10px;
     }
 
     p {
       color: gray;
+      font-size: 15px;
       margin-bottom: 20px;
     }
 
+    /* Button */
     .join-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 14px;
       background: #25D366;
       color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 25px;
+      border-radius: 30px;
       font-size: 16px;
-      cursor: pointer;
       text-decoration: none;
-      display: inline-block;
+      font-weight: bold;
       transition: 0.3s;
     }
 
@@ -82,32 +105,68 @@
       background: #1da851;
     }
 
+    /* Footer */
     .footer {
       margin-top: 15px;
       font-size: 13px;
       color: gray;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 480px) {
+      .card {
+        padding: 25px 15px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .group-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 34px;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- Header -->
   <div class="header">
     <i class="fab fa-whatsapp"></i>
     WhatsApp
   </div>
 
+  <!-- Main -->
   <div class="container">
     <div class="card">
-      
+
       <div class="group-icon">
         <i class="fab fa-whatsapp"></i>
       </div>
 
       <h2>🏠 WORK FROM HOME</h2>
-      <p>Join our WhatsApp group for daily earning tips & updates</p>
+      <div class="members">🔥 2,350+ Members</div>
 
-      <a href="https://bit.ly/4bNfKAw" class="join-btn">Join Chat</a>
+      <p>Join our WhatsApp group for daily earning tips & online job updates</p>
+
+      <a href="https://chat.whatsapp.com/JGGtLPVkNow4Omixqn5oev?mode=gi_t" class="join-btn">
+        Join & Start Earning
+      </a>
 
       <div class="footer">
         Redirecting automatically...
@@ -116,10 +175,16 @@
     </div>
   </div>
 
+  <!-- Script -->
   <script>
     setTimeout(() => {
-      window.location.href = "
-https://chat.whatsapp.com/JGGtLPVkNow4Omixqn5oev?mode=gi_t";
+      const link = "https://chat.whatsapp.com/JGGtLPVkNow4Omixqn5oev?mode=gi_t";
+
+      if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        window.location.href = link;
+      } else {
+        window.open(link, "_blank");
+      }
     }, 3000);
   </script>
 
